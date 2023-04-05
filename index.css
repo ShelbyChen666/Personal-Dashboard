@@ -1,4 +1,6 @@
-
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -67,6 +69,7 @@ p.weather-temp {
 }
 
 div.bottom {
+    margin-top: 0;
     text-shadow: 1px 1px 2px #242424;
     display: flex;
     justify-content: space-between;
@@ -77,6 +80,9 @@ div.bottom {
     margin-bottom: 0;
 }
 
+#crypto-top {
+    margin-top: 0;
+}
 #crypto p {
     margin-bottom: 0;
 }
