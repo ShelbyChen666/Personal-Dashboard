@@ -11,6 +11,26 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 		document.getElementById("author").textContent = `By: Dodi Achmad`
     })
 
+fetch("https://api.coingecko.com/api/v3/coins/bitcoin")
+    .then(res => {
+        if (!res.ok) {
+            throw Error("Something went wrong")
+        }
+        return res.json()
+    })
+    .then(data => {
+        document.getElementById("crypto-top").innerHTML = `
+            <img src=${data.image.small} />
+            <span>${data.name}</span>
+        `
+        document.getElementById("crypto").innerHTML += `
+            <p>🎯: AU$${data.market_data.current_price.aud.toLocaleString()}</p>
+            <p>👆: AU$${data.market_data.high_24h.aud.toLocaleString()}</p>
+            <p>👇: AU$${data.market_data.low_24h.aud.toLocaleString()}</p>
+        `
+    })
+    .catch(err => console.error(err))
+
 function getCurrentTime() {
     const date = new Date()
     const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
